@@ -1,14 +1,59 @@
 { pkgs,... }:
 {
-	programs.neovim = 
-		let 
-		   toLua = str: "lua << EOF\n${str}\nEOF\n";
-		   toLuaFile = file: "lua << EOF\n${builtins.readFile file}\nEOF\n";
-		in
-	{
-		enable = true;
-		plugins = with pkgs.vimPlugins; [
-			nvim-treesitter
-		];
-	};
+    programs.nixvim = {
+	    enable = true;
+	    colorschemes.catpuccin.enable = true;
+	    plugins = {
+		nvim-tree = {
+		   enable = true;
+		};
+		noice = {
+		   enable = true;
+		};
+		lsplines = {
+		   enable = true;
+		};
+		blink-cmp = {
+		   enable = true;
+		   setupLspCapabilities = true;
+		   settings = {
+			keymap = {
+				preset = "super-tab";
+			};
+			appearance = {
+				nerd_font_variant = "mono";
+			};
+			completion = {documentation = {auto_show = false;};};
+			sources = {
+				default = [
+					"lsp"
+					"path"
+					"snippets"
+					"buffer"
+				];
+			};
+			fuzzy = {implementation = "prefer_rust_with_warning";};
+		   };
+		};
+		treesitter = {
+		    enable = true;
+		    highlight.enable = true;
+		    folding.enable = true;
+		};
+		lsp = {
+		    enable = true;
+		    servers = {
+			tsserver.enable = true;
+			gopls.enable = true;
+		    };
+		};
+		luasnip.enable = true;
+		rustaceanvim.enable = true;
+		trouble.enable = true;
+		telescope.enable = true;
+		nvim-autopairs.enable = true;
+		indent-blankline.enable = true;
+		beacon.enable = true;
+	    };
+    };
 }

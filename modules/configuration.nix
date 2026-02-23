@@ -1,12 +1,11 @@
 # Edit this configuration file to define what should be installed on
 
 { config, pkgs, ... }:
-
 {
 	nixpkgs.config.allowUnfree = true;
-	# virtualisation.virtualbox.guest.enable = true;
-	# virtualisation.virtualbox.guest.dragAndDrop = true;
-
+# virtualisation.virtualbox.guest.enable = true;
+# virtualisation.virtualbox.guest.dragAndDrop = true;
+	virtualisation.vmware.guest.enable = true;
 	imports = [
 		/etc/nixos/hardware-configuration.nix
 	];
@@ -53,12 +52,12 @@
 
 # Configure keymap in X11
 	services.xserver.xkb = {
-		layout = "gb";
+		layout = "us";
 		variant = "";
 	};
 
 # Configure console keymap
-	console.keyMap = "uk";
+	console.keyMap = "us";
 
 # Enable CUPS to print documents.
 	services.printing.enable = true;
@@ -103,7 +102,6 @@
 	environment.systemPackages = with pkgs; [
 			vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
 			wget
-			neovim
 			git
 			tmux
 			fish
@@ -134,6 +132,10 @@
 			nimble
 			php
 			gopls
+			certipy
+			netexec
+			bat
+			eza
 			pyright
 			rofi
 			rustc
