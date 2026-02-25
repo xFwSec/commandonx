@@ -22,6 +22,7 @@
 		ppkgs.bloodyad
 		ppkgs.pypykatz
 		ppkgs.scapy
+		ppkgs.pwntools
 		]
 		))
 	];
@@ -33,8 +34,8 @@
 		force = true;
 		source = ../configs/xfce/desktop.xml;
 	};
-	xdg.configFile."xfce4/wallpaper.jpeg" = {
+	xdg.configFile."xfce4/wallpaper.png" = {
 		force = true;
-		source = ../configs/xfce/wallpaper.jpeg;
+		source = ../configs/xfce/wallpaper.png;
 	};
 }

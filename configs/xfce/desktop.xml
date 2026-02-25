@@ -6,7 +6,7 @@
     <property name="screen0" type="empty">
       <property name="monitorVirtual-1" type="empty">
         <property name="workspace0" type="empty">
-		<property name="last-image" type="string" value="/home/xfow/.config/xfce4/wallpaper.jpeg"/>
+		<property name="last-image" type="string" value="/home/xfow/.config/xfce4/wallpaper.png"/>
         </property>
       </property>
     </property>

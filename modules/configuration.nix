@@ -9,7 +9,9 @@
 	imports = [
 		/etc/nixos/hardware-configuration.nix
 	];
-
+	fonts.packages = with pkgs;[
+		iosevka
+	];
 # Bootloader.
 	boot.loader.grub.enable = true;
 	boot.loader.grub.device = "/dev/sda";
@@ -101,6 +103,7 @@
 # $ nix search wget
 	environment.systemPackages = with pkgs; [
 			vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+			bash
 			wget
 			git
 			tmux
@@ -108,6 +111,7 @@
 			fzf
 			ripgrep
 			curl
+			protobuf
 			proxychains
 			wireguard-tools
 			docker
@@ -116,6 +120,9 @@
 			ruby
 			rustup
 			go
+			google-chrome
+			zip
+			unzip
 			rust-analyzer
 			python3
 			pyenv
@@ -125,6 +132,7 @@
 			kitty
 			pipx
 			gcc
+			pkgs.pkgsCross.mingwW64.stdenv.cc
 			fd
 			firefox
 			zoxide
@@ -140,6 +148,12 @@
 			rofi
 			rustc
 			cargo
+			protoc-gen-go
+			protoc-gen-go-grpc
+			obsidian
+			nil
+			nix-search
+			gnumake
 			];
 
 	security.sudo = {

@@ -2,9 +2,29 @@
 {
     programs.nixvim = {
 	    enable = true;
-	    colorschemes.catpuccin.enable = true;
+	    opts = {
+	     number = true;
+	     relativenumber = false;
+	     fillchars = {eob = " ";};
+	    };
+
+	    colorschemes.nord = {
+		enable = true;
+		# settings = {
+		#     background = "hard";
+		# };
+	    };
+	    
 	    plugins = {
-		nvim-tree = {
+		lualine = {
+		   enable = true;
+		   settings.options = {
+			theme = "auto";
+			sectionSeperators = "";
+			componentSeperators = "";
+		   };
+		};
+		neo-tree = {
 		   enable = true;
 		};
 		noice = {
@@ -45,6 +65,7 @@
 		    servers = {
 			tsserver.enable = true;
 			gopls.enable = true;
+			nil.enable = true;
 		    };
 		};
 		luasnip.enable = true;
@@ -54,6 +75,8 @@
 		nvim-autopairs.enable = true;
 		indent-blankline.enable = true;
 		beacon.enable = true;
+		todo-comments.enable = true;
+		symbols-outline.enable = true;
 	    };
     };
 }
